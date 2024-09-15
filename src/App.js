@@ -1,10 +1,12 @@
-import { Postagem } from './Components/Postagem';
+import {Header} from './Components/Header';
+import {Forms} from './Components/Forms';
 
 function App() {
   return (
-    <div>
-      <Postagem></Postagem>
-    </div>
+    <>
+      <Header></Header>
+      <Forms></Forms>
+    </>
   );
 }
 
