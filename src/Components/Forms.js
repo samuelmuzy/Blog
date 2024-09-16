@@ -51,9 +51,9 @@ export class Forms extends React.Component {
     render() {
         return (
             <Div>
-                <Input placeholder="Adicione um Link" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
-                <Input placeholder="Digite o titulo" name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
-                <Input placeholder="digite um texto" name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+                <Input placeholder="Titulo da postagem (máximo de 50 caracteres)" maxLength={50} name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
+                <Input placeholder="Escreva o conteudo aqui..." name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+                <Input placeholder="Link da imagem (opcional)" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
                 
                 <Button onClick={this.onClickAddImg}>Enviar Post</Button>
             </Div>
