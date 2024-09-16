@@ -1,4 +1,5 @@
 import React from "react";
+import { Div, Input, Button } from './Styled-Components/StyledForms';
 
 export class Forms extends React.Component {
     state = {
@@ -49,13 +50,13 @@ export class Forms extends React.Component {
 
     render() {
         return (
-            <>
-                <input placeholder="Adicione um Link" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
-                <input placeholder="Digite o titulo" name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
-                <input placeholder="digite um texto" name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+            <Div>
+                <Input placeholder="Adicione um Link" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
+                <Input placeholder="Digite o titulo" name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
+                <Input placeholder="digite um texto" name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
                 
-                <button onClick={this.onClickAddImg}>Enviar Post</button>
-            </>
+                <Button onClick={this.onClickAddImg}>Enviar Post</Button>
+            </Div>
         );
     }
 }
