@@ -49,3 +49,4 @@ export class Postagem extends React.Component {
         );
     }
 }
+
