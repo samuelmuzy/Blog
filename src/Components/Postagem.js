@@ -1,6 +1,7 @@
 import React from 'react';
-import { Img } from './Styled-Components/Img';
+import { Img, ImgPost } from './Styled-Components/Img';
 import { Forms } from './Forms';
+import { Div, H1, Div2 } from './Styled-Components/StyledPost'
 
 export class Postagem extends React.Component {
     state = {
@@ -16,11 +17,13 @@ export class Postagem extends React.Component {
     render() {
         const listar = this.state.postagem.map((imagem) => {
             return (
-                <div key={imagem.id}>
-                    <h1>{imagem.tituloInput}</h1>
-                    <p>{imagem.textoInput}</p>
-                    <Img src={imagem.urlImagem} alt='imagem da div de post'/>
-                </div>
+                <Div key={imagem.id}>
+                    <ImgPost src={imagem.urlImagem} alt='imagem da div de post'/>
+                    <Div2>
+                        <H1>{imagem.tituloInput}</H1>
+                        <p>{imagem.textoInput}</p>
+                    </Div2>
+                </Div>
             );
         });
 
@@ -28,7 +31,7 @@ export class Postagem extends React.Component {
             <>
                 <Forms adicionarInputs={this.adicionarImagem}/>
                 <div>{listar}</div>
-            </>
+            </ >
         );
     }
 }

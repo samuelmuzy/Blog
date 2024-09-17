@@ -1,5 +1,5 @@
 import React from "react";
-import { Div, Input, Button } from './Styled-Components/StyledForms';
+import { Input, Button, Form } from './Styled-Components/StyledForms';
 
 export class Forms extends React.Component {
     state = {
@@ -45,18 +45,18 @@ export class Forms extends React.Component {
         this.props.adicionarInputs(novaImg);
 
         //limpa os inputs
-        this.setState({ urlInput: "",textoInput: "",tituloInput:"" });
+        this.setState({tituloInput:"", urlInput: "",textoInput: ""});
     }
 
     render() {
         return (
-            <Div>
-                <Input placeholder="Titulo da postagem (máximo de 50 caracteres)" maxLength={50} name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
-                <Input placeholder="Escreva o conteudo aqui..." name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+            <Form>
+                <Input placeholder="Titulo da postagem (máximo de 50 caracteres)" required maxLength={50} name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
+                <Input placeholder="Escreva o conteudo aqui..." name="inputTexto" required onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
                 <Input placeholder="Link da imagem (opcional)" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
                 
-                <Button onClick={this.onClickAddImg}>Enviar Post</Button>
-            </Div>
+                <Button onClick={this.onClickAddImg} type="submit">Enviar Post</Button>
+            </Form>
         );
     }
 }
