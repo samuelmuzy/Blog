@@ -19,7 +19,7 @@ export class Forms extends React.Component {
     }
 
     onClickAddImg = () => {
-        const { urlInput,textoInput,tituloInput} = this.state;
+        const { urlInput, textoInput, tituloInput} = this.state;
         const id = Math.random();
         let novaImg = {};
 

@@ -18,13 +18,17 @@ export const Input = styled.input `
     border: 1px solid lightgray;
     border-radius: 5px;
 `
-export const Button = styled.button `
-    margin: 20px;
+export const Button = styled.button `   
     margin-left: 10px;
-    font-size: 14px;
-    width: 100px;
-    height: 50px;
-    border: 1px solid lightgray;
-    border-radius: 20px;
-    background-color: lightblue;
+    font-size: 10px;
+    font-weight: bold;
+    width: 81px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    &:hover {
+        background-color: lightseagreen;
+        border: 1px solid lightblue;
+    }
 `

@@ -16,3 +16,18 @@ export const Div2 = styled.div `
 export const H1 = styled.h1 `
     width: 100%;
 `
+
+export const Button = styled.button `   
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    width: 81px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    &:hover {
+        background-color: lightseagreen;
+        border: 1px solid lightblue;
+    }
+`
