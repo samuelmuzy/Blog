@@ -7,19 +7,42 @@ export class Postagem extends React.Component {
         postagem: []
     }
 
-    adicionarImagem = (novaImg) => {
+    adicionarImagem = (postagem) => {
         this.setState((prevState) => ({
-            postagem: [...prevState.postagem, novaImg]
+            postagem: [...prevState.postagem, postagem]
         }));
     }
 
+    deletarPost = (id) =>{
+        let postagem = this.state.postagem.filter((post) => {
+            return post.id !== id
+        })
+        this.setState({postagem:postagem});
+    }
+    
+
     render() {
-        const listar = this.state.postagem.map((imagem) => {
+        const listar = this.state.postagem.map((post) => {
             return (
-                <div key={imagem.id}>
-                    <h1>{imagem.tituloInput}</h1>
-                    <p>{imagem.textoInput}</p>
-                    <Img src={imagem.urlImagem} alt='imagem da div de post'/>
+                 <div key={post.id}>
+                    <h1>{post.tituloInput}</h1>
+
+                    {post.textoInput && post.textoInput.length >= 50 ? ( //operador ternario para verificar o texto for maior que 50 
+                        <div>
+                            <p>{post.textoInput}</p>
+                            <p>leia mais</p> 
+                        </div>
+                    ) : (
+                        <p>{post.textoInput}</p>
+                        
+                    )}
+                  {post.urlImagem  ? (
+                        <Img src={post.urlImagem} alt='imagem da div de post'/>
+                    ):(
+                        <></>
+                    )}
+                    <button onClick={() => {this.deletarPost(post.id)}}>Deletar Post</button>
+                    
                 </div>
             );
         });
