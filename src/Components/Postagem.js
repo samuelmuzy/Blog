@@ -31,10 +31,10 @@ export class Postagem extends React.Component {
                         <H1>{post.tituloInput}</H1>
                             {/* Operador ternario para verificar o texto for maior que 50  */}
                             {post.textoInput && post.textoInput.length >= 50 ? ( 
-                            <div>
+                            <Div2>
                                 <p>{post.textoInput}</p>
                                 <a>leia mais</a> 
-                            </div>) : ( <a onClick={this.deletarPost}>{post.textoInput}</a> )}
+                            </Div2>) : ( <a>{post.textoInput}</a> )}
                         <Button onClick={() => {this.deletarPost(post.id)}}>Deletar</Button>            
                     </Div2>
                 </Div> 
