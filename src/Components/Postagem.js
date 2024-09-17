@@ -33,7 +33,7 @@ export class Postagem extends React.Component {
                             {post.textoInput && post.textoInput.length >= 50 ? ( 
                             <div>
                                 <p>{post.textoInput}</p>
-                                <p>leia mais</p> 
+                                <a>leia mais</a> 
                             </div>) : ( <a onClick={this.deletarPost}>{post.textoInput}</a> )}
                         <Button onClick={() => {this.deletarPost(post.id)}}>Deletar</Button>            
                     </Div2>
