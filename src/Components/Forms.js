@@ -1,13 +1,11 @@
 import React from "react";
+import { Input, Button, Form } from './Styled-Components/StyledForms';
 
 export class Forms extends React.Component {
     state = {
         urlInput: "",
         textoInput: "",
         tituloInput:"",
-        inputVazioTexto: false,
-        inputVazioTitulo: false,
-        
     }
 
     onChangeInputImg = (event) => {
@@ -21,25 +19,9 @@ export class Forms extends React.Component {
     }
 
     onClickAddImg = () => {
-        const { urlInput, textoInput, tituloInput } = this.state;
+        const { urlInput, textoInput, tituloInput} = this.state;
         const id = Math.random();
         let postagem = {};
-    
-        // Verifica se o campo de texto está vazio
-        if (textoInput === "") {
-            this.setState({ inputVazioTexto: true });
-            return
-        } else {
-            this.setState({ inputVazioTexto: false });
-        }
-    
-        // Verifica se o campo de título está vazio
-        if (tituloInput === "") {
-            this.setState({ inputVazioTitulo: true });
-            return
-        } else {
-            this.setState({ inputVazioTitulo: false });
-        }
     
         // Se todos os campos estiverem preenchidos
         if (urlInput !== "" && textoInput !== "" && tituloInput !== "") {
@@ -57,24 +39,31 @@ export class Forms extends React.Component {
                 id
             };
             this.props.adicionarInputs(postagem);
-           
+
             this.setState({ urlInput: "", textoInput: "", tituloInput: "" });
         }
-    };
-    
+        else
+        {
+            return <></>
+        }
+
+        //passa o arry para o componete imagem
+        this.props.adicionarInputs(novaImg);
+
+        //limpa os inputs
+        this.setState({tituloInput:"", urlInput: "",textoInput: ""});
+    }
 
     render() {
         return (
-            <>
-               
-                <input placeholder="Adicione um Link" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/> 
-            
-                <input style={{ borderColor: this.state.inputVazioTitulo ? "red" : "" }} placeholder="Digite o titulo" name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
-            
-                <input style={{ borderColor: this.state.inputVazioTexto ? "red" : "" }} placeholder="digite um texto" name="inputTexto" onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+            <Form>
+                <Input placeholder="Titulo da postagem (máximo de 50 caracteres)" required maxLength={50} name="inputTitulo" onChange={this.onChangeInputTitulo} value={this.state.tituloInput}/>
+                <Input placeholder="Escreva o conteudo aqui..." name="inputTexto" required onChange={this.onChangeInputTexto} value={this.state.textoInput}/>
+                <Input placeholder="Link da imagem (opcional)" name="inputImg" onChange={this.onChangeInputImg} value={this.state.urlInput}/>
                 
-                <button onClick={this.onClickAddImg}>Enviar Post</button>
-            </>
+                <Button onClick={this.onClickAddImg} type="submit">Enviar Post</Button>
+            </Form>
         );
     }
 }
+

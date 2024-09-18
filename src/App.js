@@ -1,11 +1,15 @@
+import {Header} from './Components/Header';
+import {Forms} from './Components/Forms';
 import { Postagem } from './Components/Postagem';
 
 function App() {
   return (
-    <div>
+    <>
+      <Header></Header>
       <Postagem></Postagem>
-    </div>
+    </>
   );
 }
 
 export default App;
+
