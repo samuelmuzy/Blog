@@ -1,7 +1,7 @@
 import React from 'react';
-import { fundomodal } from './Styled-Components/StyledModal';
+// import { modal } from './Styled-Components/StyledModal';
 
-export class modal extends React.Component {
+export class Modal extends React.Component {
 
     state = {
         Aberto: false,
@@ -19,10 +19,13 @@ export class modal extends React.Component {
         if(!this.state.Aberto) {
             return <button onClick={this.modalAberto}></button>
         }
+        return(
+            <Div>
+                <modal>
+                    <p>Deu certo!</p>
+                </modal>
+            </Div>
+        )
     }
-
-    return(
-      
-    )
 }
 

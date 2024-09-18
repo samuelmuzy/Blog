@@ -1,7 +1,8 @@
 import React from 'react';
-import { Img, ImgPost } from './Styled-Components/Img';
+import { ImgPost } from './Styled-Components/Img';
 import { Forms } from './Forms';
-import { Div, H1, Div2, Button } from './Styled-Components/StyledPost'
+import { Div, H1, Div2, Button, P } from './Styled-Components/StyledPost';
+import { Modal } from './Modal';
 
 export class Postagem extends React.Component {
     state = {
@@ -31,11 +32,9 @@ export class Postagem extends React.Component {
                         <H1>{post.tituloInput}</H1>
                             {/* Operador ternario para verificar o texto for maior que 50  */}
                             {post.textoInput && post.textoInput.length >= 50 ? ( 
-                            <Div2>
-                                <p>{post.textoInput}</p>
-                                <a>leia mais</a> 
-                            </Div2>) : ( <a>{post.textoInput}</a> )}
-                        <Button onClick={() => {this.deletarPost(post.id)}}>Deletar</Button>            
+                                <P>{post.textoInput}<P onClick={() => console.log('Clicou')}>...leia mais</P></P> ) : 
+                            ( <a>{post.textoInput}</a> )}
+                            <Button onClick={() => {this.deletarPost(post.id)}}>Deletar</Button>            
                     </Div2>
                 </Div> 
             );

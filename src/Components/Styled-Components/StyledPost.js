@@ -8,8 +8,9 @@ export const Div = styled.div `
     border-radius: 10px;
 `
 export const Div2 = styled.div `
-    width: 100%;
-    display: block;
+    width: 97%;
+    display: flex;
+    flex-direction: column;
     padding-left: 20px;
 `
 
@@ -30,4 +31,10 @@ export const Button = styled.button `
         background-color: lightseagreen;
         border: 1px solid lightblue;
     }
+`
+export const P = styled.p `
+    display: block;
+    margin-right: 10px;
+    text-align: justify;
+    margin: none;
 `
