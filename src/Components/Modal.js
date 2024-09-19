@@ -1,4 +1,5 @@
 import React from 'react';
+import { Div } from './Styled-Components/StyledForms';
 // import { modal } from './Styled-Components/StyledModal';
 
 export class Modal extends React.Component {

@@ -18,7 +18,7 @@ export class Forms extends React.Component {
         this.setState({tituloInput:event.target.value});
     }
 
-    onClickAddImg = () => {
+    onClickAddImg = (event) => {
         const { urlInput, textoInput, tituloInput} = this.state;
         const id = Math.random();
         let postagem = {};
@@ -26,9 +26,7 @@ export class Forms extends React.Component {
         // Se todos os campos estiverem preenchidos
         if (urlInput !== "" && textoInput !== "" && tituloInput !== "") {
             postagem = { urlImagem: urlInput, textoInput, tituloInput, id };
-            this.props.adicionarInputs(postagem);
-            
-            this.setState({ urlInput: "", textoInput: "", tituloInput: "" });
+           
         } 
         // Caso onde apenas o texto eo título estão preenchidos (imagem padrão)
         else if (textoInput !== "" && tituloInput !== "") {
@@ -38,9 +36,7 @@ export class Forms extends React.Component {
                 tituloInput,
                 id
             };
-            this.props.adicionarInputs(postagem);
-
-            this.setState({ urlInput: "", textoInput: "", tituloInput: "" });
+            
         }
         else
         {
@@ -48,7 +44,10 @@ export class Forms extends React.Component {
         }
 
         //passa o arry para o componete imagem
-        this.props.adicionarInputs(novaImg);
+        this.props.adicionarInputs(postagem);
+        
+        //metodo para empedir que o metodo seja executado depois que o input e limpado gerando um bug no required
+        event.preventDefault();
 
         //limpa os inputs
         this.setState({tituloInput:"", urlInput: "",textoInput: ""});
