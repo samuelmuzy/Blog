@@ -32,7 +32,7 @@ export class Postagem extends React.Component {
                         <H1>{post.tituloInput}</H1> 
                             {/* Operador ternario para verificar o texto for maior que 50  */}
                             {post.textoInput && post.textoInput.length >= 50 ? ( 
-                                <P>{post.textoInput}
+                                <P>{post.textoInput.slice(0,400) /* limita a quantida de caracteres para quando o texto passar de 50*/}
                                     <P onClick={() => console.log('Clicou')}>...leia mais</P>
                                 </P> 
                             ) : 
