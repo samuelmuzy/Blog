@@ -15,7 +15,7 @@ export const A = styled.button `
     text-decoration-line: blue;
 `
 
-export const Modal = styled.div`
+export const ModalS = styled.div`
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +30,12 @@ export const DivModal = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 150px;
+    padding: 10%;
     background-color: #fff;
-    border-radius:20px;
+    border-radius:30px;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-width: 40%;
+    max-height: 500px;
+    
 `

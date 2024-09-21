@@ -2,7 +2,7 @@ import React from 'react';
 import { ImgPost } from './Styled-Components/Img';
 import { Forms } from './Forms';
 import { Div, H1, Div2, Button, P } from './Styled-Components/StyledPost';
-import { ModalTeste } from './ModalTeste';
+import { Modal } from './Modal';
 
 export class Postagem extends React.Component {
     state = {
@@ -62,7 +62,7 @@ export class Postagem extends React.Component {
                 <Forms adicionarInputs={this.adicionarInputs}/>
                 <div>{listar}</div>
                 {/*Envia o conteudo do texto e o estado da modal para True  */}
-                <ModalTeste onClickFecharModal={this.FecharModal} modalEstado={this.state.abrirModal} texto={this.state.textoModal} /> 
+                <Modal onClickFecharModal={this.FecharModal} modalEstado={this.state.abrirModal} texto={this.state.textoModal} /> 
             </ >
         );
     }
