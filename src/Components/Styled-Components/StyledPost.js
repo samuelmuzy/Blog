@@ -38,3 +38,8 @@ export const P = styled.p `
     text-align: justify;
     margin: none;
 `
+export const Span = styled.span`
+ color: blue;
+ text-decoration: underline;
+ cursor: pointer;
+`

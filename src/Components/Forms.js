@@ -5,7 +5,7 @@ export class Forms extends React.Component {
     state = {
         urlInput: "",
         textoInput: "",
-        tituloInput:""
+        tituloInput:"",
     }
 
     onChangeInputImg = (event) => {
@@ -17,24 +17,40 @@ export class Forms extends React.Component {
     onChangeInputTitulo = (event) =>{
         this.setState({tituloInput:event.target.value});
     }
+    //Metodo que verifica se a url e valida 
+    verificarUrl = (string) => {
+        try {
+            let url = new URL(string)
+            return true
+        } catch(err) {
+            return false
+        }
+    }
 
-    onClickAddImg = () => {
+    onClickAddImg = (event) => {
         const { urlInput, textoInput, tituloInput} = this.state;
         const id = Math.random();
-        let novaImg = {};
+        let postagem = {};
 
-        if (urlInput !== "" && textoInput !== "" && tituloInput !== "") 
-        {
-            novaImg = { urlImagem: urlInput,textoInput,tituloInput,id };
+        let ValidacaoUrl = this.verificarUrl(urlInput);
+        
+        if(!ValidacaoUrl & urlInput !== "" ){
+            alert("URL inválido, imagem padrão adicionada.")
         }
-        else if(textoInput !== "" && tituloInput !== "")
-        {
-            novaImg = {
-                urlImagem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3pDchOXo_3j8k56938fy8_Pjy0pd7_fiz7Q&usqp=CAU',
+
+        // Se todos os campos estiverem preenchidos e a url for valida 
+        if (urlInput !== "" && textoInput !== "" && tituloInput !== "" && ValidacaoUrl) {
+            postagem = { urlImagem: urlInput, textoInput, tituloInput, id };
+        } 
+        // Caso onde apenas o texto eo título estão preenchidos (imagem padrão)
+        else if (textoInput !== "" && tituloInput !== "" ) {
+            postagem = {
+                urlImagem: 'https://lh3.googleusercontent.com/proxy/dyNnAEljngpu7DhsLuu7bvHW4VdDcrnqAI9WPlw83fL_viJHlcnIVCtKG2CvzlNgE-YKkn_4FFerhqIJjZlNnH5UaukdSjldIncwZVSePrZfrZ0_2DNtdqOykHA',
                 textoInput,
                 tituloInput,
                 id
             };
+            
         }
         else
         {
@@ -42,7 +58,10 @@ export class Forms extends React.Component {
         }
 
         //passa o arry para o componete imagem
-        this.props.adicionarInputs(novaImg);
+        this.props.adicionarInputs(postagem);
+        
+        //metodo para empedir que o metodo seja executado depois que o input e limpado gerando um bug no required
+        event.preventDefault();
 
         //limpa os inputs
         this.setState({tituloInput:"", urlInput: "",textoInput: ""});
