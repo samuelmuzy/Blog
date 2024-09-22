@@ -31,7 +31,7 @@ export class Forms extends React.Component {
         // Caso onde apenas o texto eo título estão preenchidos (imagem padrão)
         else if (textoInput !== "" && tituloInput !== "") {
             postagem = {
-                urlImagem: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3pDchOXo_3j8k56938fy8_Pjy0pd7_fiz7Q&usqp=CAU',
+                urlImagem: 'https://lh3.googleusercontent.com/proxy/BH4Wb59NitlHwCLTwwiqTwu08OMRPbm9ZFMW-V01J1Jyrp8uRiQAzScCJxSLMk5dwOULx3HCHk49cfprQHuzk6UDrKtOlL5xCyMoMupQYMq7RVuxJxK5bJ8fiEIp3XW_vRL5',
                 textoInput,
                 tituloInput,
                 id

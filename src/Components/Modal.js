@@ -11,8 +11,8 @@ export class Modal extends React.Component {
                 {modalEstado ? 
                     <ModalS>
                         <DivModal>
-                        <Button onClick={onClickFecharModal}>Fechar</Button>
-                        <p>{texto}</p>
+                            <Button onClick={onClickFecharModal}>Fechar</Button>
+                            <p>{texto}</p>
                             
                         </DivModal>
                     </ModalS>
