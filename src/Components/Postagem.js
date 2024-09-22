@@ -1,7 +1,7 @@
 import React from 'react';
-import { ImgPost } from './Styled-Components/Img';
+import { ImgPost } from './Styled-Components/StyledImgForms';
 import { Forms } from './Forms';
-import { Div, H1, Div2, Button, P } from './Styled-Components/StyledPost';
+import { Div, H1, Div2, Button, P, Span } from './Styled-Components/StyledPost';
 import { Modal } from './Modal';
 
 export class Postagem extends React.Component {
@@ -45,7 +45,7 @@ export class Postagem extends React.Component {
                                 ( 
                                     <P>{post.textoInput.slice(0,400) /* limita a quantida de caracteres para quando o texto passar de 50*/}
                                          {/*Adiciona o texto a o Componente da modal e muda o status dele para true*/}
-                                        <span onClick={() =>{this.onClickAbrirModal(post.textoInput)}}>...leia mais</span>
+                                        <Span onClick={() =>{this.onClickAbrirModal(post.textoInput)}}>...leia mais</Span>
         
                                     </P> 
                                 ) : 

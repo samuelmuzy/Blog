@@ -6,6 +6,6 @@ export const Img = styled.img `
 
 export const ImgPost = styled.img `
     height: 100%;
-    width: 30%;
+    width: 40%;
     border-radius: 10px;
 `

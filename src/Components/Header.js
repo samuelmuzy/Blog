@@ -1,6 +1,6 @@
 import React from 'react';
 import { H1 } from './Styled-Components/Styledheader';
-import { Img } from './Img';
+import { Img } from './Styled-Components/StyledImgHeader';
 import { Div } from './Styled-Components/StyledForms';
 
 export class Header extends React.Component{
