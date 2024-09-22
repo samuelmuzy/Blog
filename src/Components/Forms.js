@@ -17,21 +17,35 @@ export class Forms extends React.Component {
     onChangeInputTitulo = (event) =>{
         this.setState({tituloInput:event.target.value});
     }
+    //Metodo que verifica se a url e valida 
+    verificarUrl = (string) => {
+        try {
+            let url = new URL(string)
+            return true
+        } catch(err) {
+            return false
+        }
+    }
 
     onClickAddImg = (event) => {
         const { urlInput, textoInput, tituloInput} = this.state;
         const id = Math.random();
         let postagem = {};
-    
-        // Se todos os campos estiverem preenchidos
-        if (urlInput !== "" && textoInput !== "" && tituloInput !== "") {
+
+        let ValidacaoUrl = this.verificarUrl(urlInput);
+        
+        if(!ValidacaoUrl & urlInput !== "" ){
+            alert("URL inválido, imagem padrão adicionada.")
+        }
+
+        // Se todos os campos estiverem preenchidos e a url for valida 
+        if (urlInput !== "" && textoInput !== "" && tituloInput !== "" && ValidacaoUrl) {
             postagem = { urlImagem: urlInput, textoInput, tituloInput, id };
-           
         } 
         // Caso onde apenas o texto eo título estão preenchidos (imagem padrão)
-        else if (textoInput !== "" && tituloInput !== "") {
+        else if (textoInput !== "" && tituloInput !== "" ) {
             postagem = {
-                urlImagem: 'https://lh3.googleusercontent.com/proxy/BH4Wb59NitlHwCLTwwiqTwu08OMRPbm9ZFMW-V01J1Jyrp8uRiQAzScCJxSLMk5dwOULx3HCHk49cfprQHuzk6UDrKtOlL5xCyMoMupQYMq7RVuxJxK5bJ8fiEIp3XW_vRL5',
+                urlImagem: 'https://lh3.googleusercontent.com/proxy/dyNnAEljngpu7DhsLuu7bvHW4VdDcrnqAI9WPlw83fL_viJHlcnIVCtKG2CvzlNgE-YKkn_4FFerhqIJjZlNnH5UaukdSjldIncwZVSePrZfrZ0_2DNtdqOykHA',
                 textoInput,
                 tituloInput,
                 id

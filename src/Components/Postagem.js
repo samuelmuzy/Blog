@@ -44,7 +44,7 @@ export class Postagem extends React.Component {
                             {post.textoInput && post.textoInput.length >= 50 ? 
                                 ( 
                                     <P>{post.textoInput.slice(0,400) /* limita a quantida de caracteres para quando o texto passar de 50*/}
-                                         {/*Adiciona o texto a o Componente da modal e muda o status dele para true*/}
+                                        {/*Adiciona o texto a o Componente da modal e muda o status dele para true*/}
                                         <Span onClick={() =>{this.onClickAbrirModal(post.textoInput)}}>...leia mais</Span>
         
                                     </P> 
