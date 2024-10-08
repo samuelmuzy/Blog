@@ -45,7 +45,7 @@ export class Forms extends React.Component {
         // Caso onde apenas o texto eo título estão preenchidos (imagem padrão)
         else if (textoInput !== "" && tituloInput !== "" ) {
             postagem = {
-                urlImagem: 'https://lh3.googleusercontent.com/proxy/dyNnAEljngpu7DhsLuu7bvHW4VdDcrnqAI9WPlw83fL_viJHlcnIVCtKG2CvzlNgE-YKkn_4FFerhqIJjZlNnH5UaukdSjldIncwZVSePrZfrZ0_2DNtdqOykHA',
+                urlImagem: 'https://cdn.wptotal.com.br/wp/wp-content/uploads/2023/08/erro-no-upload-de-imagem-no-wordpress-800x450.jpg',
                 textoInput,
                 tituloInput,
                 id
